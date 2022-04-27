@@ -25,15 +25,17 @@ var isSymmetric = function(root) {
         }
 
         // check if either one of them still has children or not when they should be the same
-        if(left == null || right == null) {
-            return false;
+        if(left === null || right == null) {
+            return left === right;
         }
 
         // compare values to see if symmetric
         if(left.val !== right.val) {
-            return false; 
+            return false;
         }
         // check both direction of the tree, one function goes right the other goes left 
         return symmetryChecker(left.left, right.right) && symmetryChecker(left.right, right.left);
     }
 }
+
+console.log(isSymmetric([1,2,2,3,4,4,3]));
